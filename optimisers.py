@@ -98,6 +98,7 @@ def bayesOptimisation(acquisition_type, n_steps, quickEnergy, VQE, n_repeats, se
     domain = VQE.Ansatz.domain# class attribute
     
     np.random.seed(seed)
+    random.seed(seed)
     myBopt = GPyOpt.methods.BayesianOptimization(f = f_objective,        # function to optimize       
                                                  domain = domain,        # box-constrains of the problem
                                                  acquisition_type = acquisition_type,
