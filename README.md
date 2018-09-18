@@ -1,5 +1,5 @@
 # simple-variational-quantum-eigensolver
-A simple variational eigensolver implemented using ProjectQ and Bayesian optimisation
+A simple variational eigensolver implemented using ProjectQ and Bayesian optimisation.
 
 <img src="example_results.png"  width="500" />
 
@@ -14,5 +14,7 @@ Bayesian optimisation and the SPSA optimisation algorithm are available for opti
 
 ## Requirements
 projectq - for quantum simulation
+
 GPyOpt - for Bayesian optimisation
+
 `pip install projectq, gpyopt`
