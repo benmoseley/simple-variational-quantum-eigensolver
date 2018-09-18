@@ -9,7 +9,7 @@ Also requires an Ansatz circuit object to be defined.
 
 Includes examples for finding the ground state energy of LiH and H2.
 
-Bayesian optimisation and the SPSA optimisation algorithm are implemented for optimisation.
+Bayesian optimisation and the [SPSA](http://www.jhuapl.edu/SPSA/) optimisation algorithm are used for optimisation.
 
 ## Requirements
 
