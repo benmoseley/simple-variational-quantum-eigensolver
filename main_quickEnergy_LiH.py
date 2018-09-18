@@ -64,7 +64,7 @@ def run(i):
     return [X,Y,Y_true,Xb,Yb,Yb_true]
 
 pool = multiprocessing.Pool(processes=n_processes)
-results = pool.map(run, np.arange(n_initialisations))# returns list of results
+results = pool.map(run, range(n_initialisations))# returns list of results
 pool.close()# clean up file pointers
 pool.join()
 
