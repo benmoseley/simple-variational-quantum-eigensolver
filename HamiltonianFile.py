@@ -11,15 +11,15 @@ import numpy as np
 from helper import isHermitian
 
 class HamiltonianFile:
-    '''Get Hamiltonian operator from text file
+    '''Get Hamiltonian operator from text file.
     
     Expects Hamiltonian which are expressed as a linear combination of tensor products of Pauli operators.
     
-    Expects each line in text file to specify each term in the linear combination, with the form
+    Expects each line in text file to specify each Pauli term in the linear combination, with the form
     
     distance term_amplitude qubit1_pauli_operator qubit2_pauli_operator ... qubitN_pauli_operator
     
-    where the qubit{i}_pauli_operator indicies encode Pauli gates in the following way:
+    where the qubit<i>_pauli_operator are indicies encoding the Pauli gate applied to each qubit, using the following encoding:
         0: I
         1: X
         2: Y
@@ -32,7 +32,7 @@ class HamiltonianFile:
         self.Hamiltonian = self._get_Hamiltonian(filename)
     
     def _get_hamiltonian(self, filename):
-        'Parse a Hamiltonian operator from file'
+        'Parse a Hamiltonian operator from file into list'
         
         # get raw data
         with open(filename,"r", encoding='utf-8-sig') as file:
@@ -62,7 +62,7 @@ class HamiltonianFile:
         return h
 
     def _get_Hamiltonian(self, filename):
-        'Parse a projectq Hamiltonian operator from file'
+        'Parse a projectq Hamiltonian operator from file into projectq operator'
 
         # get raw data
         with open(filename,"r", encoding='utf-8-sig') as file:
@@ -93,7 +93,7 @@ class HamiltonianFile:
         return H
     
     def getMatrix(self, hamiltonian):
-        "Get the matrix representation of a hamiltonian, using Kronecker products"
+        "Get the full matrix representation of a hamiltonian, using Kronecker products"
         
         n_qubits = len(hamiltonian[0])-2
         i = complex(0,1)
@@ -143,6 +143,8 @@ class HamiltonianFile:
         
         
 if __name__ == "__main__":
+    
+    # TEST
     
     HFile = HamiltonianFile('hamiltonians/H2at075.txt', verbose=True)
     print(HFile.Hamiltonian)

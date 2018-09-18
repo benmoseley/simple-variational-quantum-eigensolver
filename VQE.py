@@ -12,13 +12,12 @@ from projectq.ops import All, Measure, H, Rx
 from helper import measureAllQubits
 
 class VQE:
-    ''' A VQE object for calculating the expected energy of a parameterised trial state.
+    ''' A VQE object for evaluating the expected energy of a parameterised trial state.
     The expected energy can either be estimated by carrying out repeated measurements of the state (slow)
     or by cheating and calculating it exactly using the hidden state amplitudes in the simulator (fast)
     '''
     
     def __init__(self, hamiltonian, Hamiltonian, Ansatz):
-        
         self.hamiltonian = hamiltonian
         self.Hamiltonian = Hamiltonian
         self.Ansatz = Ansatz
@@ -49,8 +48,7 @@ class VQE:
             else:
                 maskArray[i] = 1
         result = measureAllQubits(qubits, engine)
-        # Calculate parity of relevant qubits in term.
-        parityArray = maskArray*result
+        parityArray = maskArray*result# Calculate parity of relevant qubits in term
         paritySum = np.sum(parityArray)
         parityMeasurement = (-1)**paritySum
     
@@ -58,8 +56,7 @@ class VQE:
 
     def _runSubtermExpectation(self, parameters, n_repeats, hamiltonian_term):
         '''Find the expectation value of a single subterm in the Hamiltonian'''
-        # this step can be parallelised across many CPU nodes, but be careful when handling the random seed in MainEngine
-        
+        # TODO: this step could be distributed across many CPU nodes, but need to handle the random seed in MainEngine carefully
         n_qubits = self.n_qubits
         
         expectationSum = 0.
@@ -101,8 +98,9 @@ class VQE:
         
 if __name__ == "__main__":
     
-    import time
+    # TEST
     
+    import time
     from HamiltonianFile import HamiltonianFile
     from H2Ansatz import H2Ansatz
     

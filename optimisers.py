@@ -11,6 +11,9 @@ import random
 
 import GPyOpt# for bayesian optimisation
 
+'''
+A collection of classical optimisers for searching for the ground state energy using a VQE object.
+'''
 
 def SPSA(stepSize, lookSize, n_steps, parameters, quickEnergy, VQE, n_repeats, seed=123):
     ''' Carries out the Simultaneous Pertubation Stochastic Approximation (SPSA) algorithm 
@@ -137,6 +140,8 @@ if __name__ == "__main__":
     from HamiltonianFile import HamiltonianFile
     from H2Ansatz import H2Ansatz
     from VQE import VQE
+    
+    # TEST
     
     # get hamiltonian
     Ham = HamiltonianFile('hamiltonians/H2at075.txt')

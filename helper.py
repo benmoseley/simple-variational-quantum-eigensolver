@@ -11,8 +11,8 @@ from projectq.ops import All, Measure
 
 
 def measureAllQubits(qubits, engine):
-    ''' Measures all qubits such that it collapses to
-        a single state in the computational basis.
+    '''Measures all qubits such that it collapses to
+    a single state in the computational basis.
     '''
     All(Measure) | qubits
     engine.flush()# need to flush before accessing quantum results
@@ -21,7 +21,7 @@ def measureAllQubits(qubits, engine):
 
 
 def printwf(engine):
-    '''Pretty prints the wavefunction.
+    '''Pretty prints a wavefunction.
     Engine can be projectq engine or numpy array of amplitudes'''
     
     if ("engine" in str(type(engine))) and ("projectq" in str(type(engine))):
@@ -42,18 +42,17 @@ def printwf(engine):
 
 
 def isHermitian(a, tol=1e-8):
-    "check if numpy matrix a is hermitian"
+    "Check if numpy matrix a is Hermitian"
     return np.allclose(a, a.conj().T, atol=tol)
 
 
 if __name__ == "__main__":
     
-    
-    ## TESTS
-    
     from projectq import MainEngine
     from projectq.ops import H, Z, CNOT
     
+    # TEST
+        
     nqubits = 2
     engine = MainEngine()# define engine
     qubits = engine.allocate_qureg(nqubits)# circuit function

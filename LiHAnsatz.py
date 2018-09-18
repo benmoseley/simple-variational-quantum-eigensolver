@@ -12,6 +12,7 @@ from projectq.ops import  (Rx, Rz, Ry, C)
 # ANSATZ OPERATOR
 
 class LiHAnsatz:
+    '''Defines a projectq ansatz circuit to be used to simulate LiH'''
     
     n_parameters = 42
     n_qubits = 6
@@ -73,6 +74,8 @@ if __name__ == "__main__":
     
     from HamiltonianFile import HamiltonianFile
     from helper import printwf
+    
+    # TEST
     
     # get hamiltonian
     HFile = HamiltonianFile('hamiltonians/LiHat145.txt')

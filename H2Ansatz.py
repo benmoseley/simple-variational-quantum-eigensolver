@@ -12,6 +12,7 @@ from projectq.ops import  (H, X, Rx, Rz, CNOT)
 # ANSATZ OPERATOR
 
 class H2Ansatz:
+    '''Defines a projectq ansatz circuit to be used to simulate H2'''
     
     n_parameters = 3
     n_qubits = 4
@@ -146,6 +147,8 @@ if __name__ == "__main__":
     
     from HamiltonianFile import HamiltonianFile
     from helper import printwf
+    
+    # TEST
     
     # get hamiltonian
     HFile = HamiltonianFile('hamiltonians/H2at075.txt')

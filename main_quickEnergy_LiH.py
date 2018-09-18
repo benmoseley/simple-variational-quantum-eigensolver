@@ -38,9 +38,9 @@ LiH = VQE(hamiltonian=hamiltonian, Hamiltonian=Hamiltonian, Ansatz=LiHAnsatz)
 # fixed parameters
 n_steps = 200
 quickEnergy = True
+n_repeats = 0
 stepSize = 0.05
 lookSize = 0.05
-n_repeats = 0
 acquisition_type = "MPI"
 
 # other parameters

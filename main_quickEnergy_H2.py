@@ -38,9 +38,9 @@ H2 = VQE(hamiltonian=hamiltonian, Hamiltonian=Hamiltonian, Ansatz=H2Ansatz)
 # fixed parameters
 n_steps = 100
 quickEnergy = True
+n_repeats = 0
 stepSize = 0.05
 lookSize = 0.05
-n_repeats = 0
 acquisition_type = "EI"
 
 # other parameters
