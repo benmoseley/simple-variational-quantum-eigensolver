@@ -25,6 +25,6 @@ matplotlib
 
 ## Example
 
-Convergence of ground state energy for LiH using Bayesian optimisation:
+Convergence of ground state energy for LiH for 8 randomly initiated runs of Bayesian optimisation:
 
 <img src="example_results.png"  width="500" />
