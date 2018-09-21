@@ -112,6 +112,9 @@ class HamiltonianFile:
         gates = {"I": I, "X": X, "Y": Y, "Z": Z}
         
         # get kronecker product of all terms in hamiltonian
+        # Note inside project q simulator the trailing bit is labelled qubit 0
+        # so to be compatible with this we need to construct the kronecker products in reverse order
+        # just a labelling convention. Does not affect underlying eigenvalues
         Hm = np.zeros((2**n_qubits, 2**n_qubits), dtype=complex)
         for hamiltonian_term in hamiltonian:
             term = gates[hamiltonian_term[-1]]
